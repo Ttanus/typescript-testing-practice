@@ -11,7 +11,7 @@ export class TodoManager {
 
     add(title: string, description?: string, dueDate?: string): Task {
         if (!title || !title.trim()) throw new Error("Title cannot be empty");
-        const task: Task {
+        const task: Task = {
             id: Date.now(),
             title: title.trim(),
             description,
@@ -19,6 +19,7 @@ export class TodoManager {
             done: false
         };
         this.tasks.push(task);
+        return task;
     }
 
     remove(id: number): boolean {
@@ -34,7 +35,7 @@ export class TodoManager {
         return true;
     }
 
-    list(filter?: "all" || "done" || "pending"): Task[] {
+    list(filter?: "all" | "done" | "pending"): Task[] {
         if (filter === "done") return this.tasks.filter(t => t.done);
         if (filter === "pending") return this.tasks.filter(t => !t.done);
         return [...this.tasks];
