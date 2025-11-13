@@ -8,7 +8,7 @@ describe("TodoManager (Mocha + Chai)", function () {
         manager = new TodoManager();
     });
 
-    it ("add a new task", () => {
+    it("add a new task", () => {
         const t = manager.add("Learn testing", "Read docs");
         expect(manager.list().length).to.equal(1);
         expect(t.title).to.equal("Learn testing");

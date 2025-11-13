@@ -6,7 +6,7 @@
   "scripts": {
     "build": "tsc",
     "test:mocha": "mocha -r ts-node/register \"tests/**/*.mocha.test.ts\"",
-    "test:vitest": "vitest run",
+    "test:vitest": "vitest run --exclude \"tests/**/*.mocha.test.ts\"",
     "test:watch": "vitest",
     "test": "npm run test:vitest"
   },
