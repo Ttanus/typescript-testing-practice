@@ -1,8 +1,8 @@
 export type Task = { // made for static checking
     id: number;
     title: string;
-    description?: string;
-    dueDate?: string;
+    description?: string | undefined;
+    dueDate?: string | undefined;
     done: boolean;
 }
 
@@ -12,7 +12,7 @@ export class TodoManager {
     add(title: string, description?: string, dueDate?: string): Task {
         if (!title || !title.trim()) throw new Error("Title cannot be empty");
         const task: Task = {
-            id: Date.now(),
+            id: Date.now() + Math.floor(Math.random() * 10000),
             title: title.trim(),
             description,
             dueDate,
